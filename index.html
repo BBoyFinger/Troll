@@ -109,7 +109,7 @@
   <div id="sticker-wrapper" style="margin-bottom:18px;">
     <img id="bear-img" src="https://pngimg.com/uploads/teddy_bear/teddy_bear_PNG108.png" alt="Bear Happy" style="width:120px;height:120px;border-radius:32px;box-shadow:0 4px 24px #ffb6c1;object-fit:cover;background:#fff;transition:transform 0.3s cubic-bezier(.4,2,.3,1);" />
   </div>
-    <h1 class="title">Chị Trang mua cafe cho em đii :v? 💖</h1>
+    <h1 class="title">Trang có nhớ Tú không :3 💖</h1>
     <div class="button-group">
       <div id="yes" class="button-yes">
         <button id="yes-btn" type="button">Yes</button>
@@ -119,6 +119,14 @@
       </div>
     </div>
     <div id="heart-effect" style="position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;"></div>
+    <div id="popup" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:999;background:rgba(255,192,203,0.25);backdrop-filter:blur(2px);align-items:center;justify-content:center;">
+      <div style="background:linear-gradient(135deg,#fff0f5 0%,#ffe4e1 100%);border-radius:24px;box-shadow:0 8px 32px #ffb6c1;padding:48px 32px;text-align:center;min-width:320px;max-width:90vw;animation:fadeIn 0.7s;">
+        <div style="font-size:48px;">💖</div>
+        <div style="font-size:24px;color:#ff3366;font-weight:bold;margin:18px 0 8px 0;">Tú cũng nhớ Trang!</div>
+        <div style="font-size:18px;color:#ff69b4;">Chúc Trang luôn vui vẻ và hạnh phúc nhé 🥰</div>
+        <button id="close-popup" style="margin-top:28px;padding:10px 32px;font-size:18px;border-radius:12px;border:none;background:#ff85c1;color:#fff;font-weight:600;box-shadow:0 2px 8px #ffb6c1;cursor:pointer;">Đóng</button>
+      </div>
+    </div>
   </div>
 </body>
 
@@ -227,14 +235,16 @@
         heart.remove();
       }, 1300);
     }
-  });
-
-  // Alert như cũ
-  yes_btn.addEventListener('click', () => {
+    // Hiển thị popup đẹp mắt
     setTimeout(() => {
-      alert('Yay! 😍');
+      document.getElementById('popup').style.display = 'flex';
     }, 600);
   });
+
+  // Đóng popup
+  document.getElementById('close-popup').onclick = function() {
+    document.getElementById('popup').style.display = 'none';
+  };
   no_btn.addEventListener('click', () => {
     alert('Are you sure? 😢');
   });
